@@ -78,17 +78,26 @@
         let currentWeek = 1;
         let fontSize = box * 3;
 
-        context.fillStyle = "#800080";
         for (let j = 0; j < years; j++) {
           for (let i = 0; i < weeks; i++) {
 
+            context.strokeRect(box * i, box * j, box, box);
+
+            // Calculate cell colors:
+            context.fillStyle = "#800080";
             if (currentWeek > livedWeeks) {
               context.fillStyle = "#333";
+              if (currentWeek % (52 * 5) === 0) {
+                context.fillStyle = "#222";
+              }
             }
-            currentWeek++;
-
-            context.strokeRect(box * i, box * j, box, box);
+            else if (currentWeek % (52 * 5) === 0) {
+              context.fillStyle = "#800050";
+            }
+            
             context.fillRect(box * i,  box * j, box, box);
+
+            currentWeek++;
           }
         }
 
