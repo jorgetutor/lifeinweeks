@@ -79,7 +79,7 @@
 
         // Init vars:
         let currentWeek = 1;
-        let fontSize = box * 3;
+        let fontSize = canvas.height < 300 ? 20: canvas.height / 20;
 
         for (let j = 0; j < years; j++) {
           for (let i = 0; i < weeks; i++) {
@@ -117,7 +117,7 @@
 
         context.textAlign = "center";
         context.font = fontSize * 1.5 + 'px serif';
-        context.fillText('Enjoy them all!', canvas.width / 2, canvas.height / 2);
+        context.fillText('Enjoy them all!', canvas.width / 2, (canvas.height - (canvas.height - fontSize * 6)  / 2));
 
         context.font = fontSize / 2 + 'px serif';
         context.textAlign = "end";
